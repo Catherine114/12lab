@@ -31,7 +31,7 @@
             <h2>Список</h2>
             <div v-if="items.length == 0"><p>Список пуст</p></div>
             <div v-else>
-              <p>{{counter}}. {{ surname }} {{ name }}</p> 
+              <p> {{ surname }} {{ name }}</p> 
               <ol>
                 <li v-for="item in items" :key="item">{{item}}</li>
               </ol><br>
