@@ -29,9 +29,9 @@
           <div class="col-12">
             <button v-on:click="counter +=1" v-on:click.prevent="addItem" v-bind:disabled="Button" type="submit" class="btn btn-outline-secondary" id="button1">Записать</button>
             <h2>Список</h2>
-            <p v-if="!surname.length + !name.length">Список пуст</p>
+            <div v-if="items.length == 0"><p>Список пуст</p></div>
             <div v-else>
-              <p>{{counter}}. {{ surname }} {{ name }}</p>
+              <p>{{counter}}. {{ surname }} {{ name }}</p> 
               <ol>
                 <li v-for="item in items" :key="item">{{item}}</li>
               </ol><br>
