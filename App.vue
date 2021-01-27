@@ -66,41 +66,43 @@ export default {
  }
  },
   methods: {
-    addItem(e) {
+    addItem() {
       this.errors = []
       if (this.surname !== '' && this.name !== '') {
         let item = {
           name: this.name,
           surname: this.surname
         };
+      
         this.$emit('add-Item', item)
-        this.name = null
-        this.surname = null
 
-        } else {
-          e.preventDefault()
-          }
+        this.name1 = this.name.toLowerCase().slice(1);
+        this.surname1 = this.surname.toLowerCase().slice(1);
+
+        this.name = this.name[0].toUpperCase() + this.name1;
+        this.surname = this.surname[0].toUpperCase() + this.surname1; 
         
         this.items.push(`${this.surname} ${this.name} `);
         this.surname = '';
         this.name = '';
       
+      }
     }
   },
   watch: {
     surname(value) {
-                        if (value.length > 0 && this.name.length > 0) {
-                            this.Button = false;
-                        } else {
-                            this.Button = true;
-                        }
-                    },
+      if (value.length > 0 && this.name.length > 0) {
+        this.Button = false;
+      } else {
+        this.Button = true;
+      }
+    },
     name(value) {
-                        if (value.length > 0 && this.surname.length > 0) {
-                            this.Button = false;
-                        } else {
-                            this.Button = true;
-                        }
+      if (value.length > 0 && this.surname.length > 0) {
+        this.Button = false;
+      } else {
+        this.Button = true;
+      }
   }
 }
 }
