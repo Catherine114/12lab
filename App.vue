@@ -27,7 +27,7 @@
           <p>Количество знаков: {{length}}</p>
 
           <div class="col-12">
-            <button v-on:click="counter +=1" v-on:click.prevent="addItem" v-bind:disabled="Button" type="submit" class="btn btn-outline-secondary" id="button1">Записать</button>
+            <button v-on:click.prevent="addItem" v-bind:disabled="Button" type="submit" class="btn btn-outline-secondary" id="button1">Записать</button>
             <h2>Список</h2>
             <div v-if="items.length == 0"><p>Список пуст</p></div>
             <div v-else>
@@ -52,7 +52,6 @@ export default {
   data() {
     return{
       step: 1,
-      counter: 0,
       surname: '',
       name: '',
       errors: [],
